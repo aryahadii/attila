@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     'use strict';
     require('load-grunt-tasks')(grunt, {
         pattern: ['grunt-*']
@@ -13,22 +13,22 @@ module.exports = function(grunt) {
             'jsTargetDir': 'js'
         },
         copy: {
-	        dev: {
+            dev: {
                 files: [{
-	                dest: 'assets/font/',
-	                src: '*',
-                    cwd: 'src/font/',
+                    dest: 'assets/fonts/',
+                    src: '*',
+                    cwd: 'src/fonts/',
                     expand: true
                 }]
-	        },
-	        dist: {
+            },
+            dist: {
                 files: [{
-	                dest: 'assets/font/',
-	                src: '*',
-                    cwd: 'src/font/',
+                    dest: 'assets/fonts/',
+                    src: '*',
+                    cwd: 'src/fonts/',
                     expand: true
-                }]		        
-	        } 
+                }]
+            }
         },
         clean: {
             dev: ['dev'],
@@ -58,7 +58,9 @@ module.exports = function(grunt) {
             options: {
                 map: true,
                 processors: [
-                    require('autoprefixer-core')({ browsers: ['last 2 versions'] })
+                    require('autoprefixer-core')({
+                        browsers: ['last 2 versions']
+                    })
                 ]
             },
             dev: {
@@ -68,17 +70,17 @@ module.exports = function(grunt) {
                 src: 'assets/<%=  config.cssTargetDir %>/*.css'
             }
         },
-		uglify: {
-			js: {
-				files: {
-					'assets/<%=  config.jsTargetDir %>/script.js': ['<%=  config.jsSrcDir %>/libs/jquery-*.js', '<%=  config.jsSrcDir %>/**/*.js']
-				}
-			}
-		},
+        uglify: {
+            js: {
+                files: {
+                    'assets/<%=  config.jsTargetDir %>/script.js': ['<%=  config.jsSrcDir %>/libs/jquery-*.js', '<%=  config.jsSrcDir %>/**/*.js']
+                }
+            }
+        },
         watch: {
             css: {
                 files: '<%=  config.cssSrcDir %>/**/*.scss',
-                tasks: ['sass:dev','copy:dev','postcss:dev']
+                tasks: ['sass:dev', 'copy:dev', 'postcss:dev']
             }
         }
     });
