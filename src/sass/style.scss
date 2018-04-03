@@ -1004,11 +1004,10 @@ img {
 .post {
 	position: relative;
 	z-index: 10;
-	direction: rtl;
 }
 
 .post-title {
-	direction: rtl;
+	text-align: center;
 	font-family: IRANSans;
 	position: relative;
 	z-index: 10;
@@ -1045,10 +1044,6 @@ img {
 .has-cover .post-meta {
 	color: $color-white;
 	opacity: 0.75;
-}
-
-.post-meta {
-	direction: rtl;
 }
 
 .post-meta a {
